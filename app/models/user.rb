@@ -3,6 +3,8 @@ class User < ApplicationRecord
     
   validates :name, presence: true, length: { minimum: 0, maximum: 50 }
 
-
+  def list_recipes
+    Recipe.where(user_id: id)
+  end
   
 end
