@@ -1,5 +1,8 @@
 <section class="container">
-  <table class="table table-bordered">
+  <div class="d-flex justify-content-end p-4">
+    <button class="btn btn-sm btn-primary">Add Food</button>
+  </div>
+  <table class="table table-sm table-bordered">
     <thead class="bg-light">
       <tr>
       <th scope="col">Food</th>
@@ -14,7 +17,7 @@
           <td> <%= food.name %></td>
           <td> <%= food.measurement_unit %></td>
           <td> $<%= food.price %> </td>
-          <td> <button class="btn btn-danger">Delete</button></td>
+          <td> <button class="btn btn-sm btn-danger">Delete</button></td>
         </tr>
       <% end %>
     </tbody>
