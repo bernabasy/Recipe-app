@@ -7,6 +7,7 @@ ruby '3.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.4.6'
 
+gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
