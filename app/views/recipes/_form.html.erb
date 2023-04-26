@@ -34,6 +34,11 @@
   <%= form.check_box :public %>
   <%= form.label :public, style: "display: inline" %>
 </div>
+
+<div class="field form-group  p-2">
+<%= form.number_field :user_id, id: :recipe_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+</div> 
+
   <div>
     <%= form.submit %>
   </div>

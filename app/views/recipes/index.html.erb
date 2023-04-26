@@ -1,18 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
-
 <div class="container" >
   <% @recipes.each do |recipe| %>
-    <div class="p-2 border border-secondary d-flex gap-5">
+    <div class="p-2 border border-secondary d-flex gap-5 mb-5">
     <% if current_user.id == recipe.user_id%>
     <div class="d-flex flex-column justify-content-around">
     <span> <%= recipe.name %> </span>
     <%= button_to "REMOVE", recipe, method: :delete, class: 'btn-secondary' %>
     </div>
+    
+    <%= link_to recipe_path(recipe), class: "link-underline link-underline-opacity-0 text-black" do %>
     <div class="p-2">
             <span> <%= recipe.description %> </span>
             </div>
+  
   <% end %>
+  <% end %>
+
   </div>
   <% end %>
 </div>
