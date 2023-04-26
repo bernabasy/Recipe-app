@@ -10,6 +10,7 @@
       <th scope="col">Food</th>
       <th scope="col">Measurement Unit</th>
       <th scope="col">Unit Price</th>
+      <th scope="col">Qty</th>
       <th scope="col">Actions</th>
     </tr>
     </thead>
@@ -19,6 +20,7 @@
           <td> <%= food.name %></td>
           <td> <%= food.measurement_unit %></td>
           <td> $<%= food.price %> </td>
+          <td> <%= food.quantity %> </td>
           <td> <button class="btn btn-sm btn-danger">Delete</button></td>
         </tr>
       <% end %>
