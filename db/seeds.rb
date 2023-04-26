@@ -10,8 +10,16 @@ Food.destroy_all
 User.destroy_all
 
 User.create([
-  {name: "Stephen Greens"},
-  {name: "Wes Gibbins"}
+  {
+    name: "Stephen Greens",
+    email: "stephengreen@gmail.com",
+    password: "test123"
+  },
+  {
+    name: "Wes Gibbins",
+    email: "wesgibbins@gmail.com",
+    password: "test123"
+  }
 ])
 
 Food.create([
