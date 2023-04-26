@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
     @food.user_id = current_user.id
 
     if @food.save
-      redirect_to foods_path, notice: "Food was successfully created."
+      redirect_to foods_path, notice: 'Food was successfully created.'
     else
       render :new
     end
