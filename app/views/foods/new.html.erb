@@ -1,0 +1,46 @@
+<section class="container">
+  <div class="pt-4 pb-4 d-flex justify-content-between">
+    <h3 class="d-flex align-self-start">Add a new food</h3>
+    <a href="<%= url_for(controller: 'foods', action: 'index')  %>">
+      <button class="btn btn-sm btn-warning">Cancel</button>
+    </a>
+  </div>
+  <div>
+    <%= form_with model: [@user, @food],  url: foods_path do |form| %>
+      <div class="mb-2">
+        <%=
+          form.text_field :name,
+          placeholder: "Enter food name here. Eg. Lasagna",
+          class: "form-control"
+        %>
+      </div>
+      <div class="mb-2">
+        <%= 
+          form.text_field :measurement_unit,
+          placeholder: "Enter measurement unit. Eg. grams, pounds, cups",
+          class: "form-control"
+        %>
+      </div>
+      <div class="mb-2">
+        <%=
+          form.text_field :price,
+          placeholder: "Enter the price. Eg. 10.00",
+          class: "form-control"
+        %>
+      </div>
+      <div class="mb-2">
+        <%=
+          form.number_field :quantity,
+          placeholder: "Enter the quantity. Eg. 2",
+          class: "form-control"
+        %>
+      </div>
+
+      <%= form.hidden_field :user_id, value: current_user.id %>
+
+      <div class="d-flex justify-content-end">
+        <%= form.submit "Add Food", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</section>
