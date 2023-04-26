@@ -19,7 +19,12 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    redirect_to foods_path, notice: "#{@food.name} was successfully deleted"
   end
 
   private

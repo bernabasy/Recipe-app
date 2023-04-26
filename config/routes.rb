@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :foods, only: [:index, :new, :create, :destroy]
+  resources :foods, only: [:index, :new, :create, :destroy] do
+    delete ":id", to: "foods#destroy", on: :member
+  end
+
   # Defines the root path route ("/")
   # root "articles#index"
   devise_for :users
