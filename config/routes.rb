@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     delete ":id", to: "foods#destroy", on: :member
   end
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  get "public_recipes", to: "public_recipes#index"
 end
