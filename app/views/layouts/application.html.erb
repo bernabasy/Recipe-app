@@ -18,7 +18,7 @@
     <div class="container-fluid d-flex justify-content-between">
       <div>
         <% if user_signed_in? %>
-          <%= link_to "koolky", foods_path, class: "navbar-brand text-light lh-sm fw-semibold" %>
+          <%= link_to "kookly", foods_path, class: "navbar-brand text-light lh-sm fw-semibold" %>
           <span class="fw-semibold">Welcome, <%= current_user.name.split(" ")[1] %></span>  
         <% else %>
           <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
