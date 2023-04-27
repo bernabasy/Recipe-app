@@ -19,7 +19,7 @@
       <div>
         <% if user_signed_in? %>
           <%= link_to "kookly", foods_path, class: "navbar-brand text-light lh-sm fw-semibold" %>
-          <span class="fw-semibold">Welcome, <%= current_user.name.split(" ")[1] %></span>  
+          <span class="fw-semibold">Welcome, <%= current_user.name %></span>  
         <% else %>
           <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
             Kookly
@@ -31,9 +31,7 @@
         <% if user_signed_in? %>
           <%= link_to "Foods", foods_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
           <%= link_to "Recipes", recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
-          <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
-            Public Recipes
-          </a>
+          <%= link_to "Public_recipes", public_recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
           <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
             Shopping List
           </a>
