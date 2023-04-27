@@ -58,7 +58,7 @@ input:checked + .slider::before {
 }
 
 .bg-yellow {
-  background-color: #FFA500;
+  background-color: #ffa500;
 }
 
 .new_user {
@@ -76,7 +76,6 @@ input:checked + .slider::before {
 .field > input[type="password"] {
   width: 100%;
 }
-
 
 @media screen and (max-width: 720px) {
   .new_user {
