@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :new, :create, :destroy] do
     delete ":id", to: "foods#destroy", on: :member
   end
-  resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+    resources :recipe_foods
+  end
 end

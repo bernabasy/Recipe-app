@@ -1,0 +1,19 @@
+<div id="<%= dom_id recipe_food %>">
+  <p>
+    <strong>Food:</strong>
+    <%= Food.find_by(id: recipe_food.food_id).name %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= "#{recipe_food.quantity} #{Food.find_by(id: recipe_food.food_id).measurement_unit}" %>
+  </p>
+
+  <p>
+    <strong>Value:</strong>
+    <%= "#{Food.find_by(id: recipe_food.food_id).price * recipe_food.quantity}$" %>
+  </p>
+  <%= link_to "Edit this recipe food", edit_recipe_recipe_food_path(@recipe, recipe_food) %> |
+  <%= button_to "Destroy this recipe food", recipe_recipe_food_path(@recipe, recipe_food), method: :delete %>
+
+</div>
