@@ -56,3 +56,7 @@ input:checked + .slider::before {
 .slider.round::before {
   border-radius: 50%;
 }
+
+.bg-yellow {
+  background-color: #FFA500;
+}

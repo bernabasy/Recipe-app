@@ -14,6 +14,24 @@
   </head>
 
   <body>
+  <nav class="navbar bg-yellow">
+    <div class="container-fluid d-flex justify-content-between">
+      <div>
+        <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
+          Kookly
+        </a>
+      </div>
+      <div>
+      <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_up">
+        Sign up
+      </a>
+      <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_in">
+        Login
+      </a>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
     <% if flash[:notice]%>
       <p class="alert alert-success">
