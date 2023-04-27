@@ -17,17 +17,37 @@
   <nav class="navbar bg-yellow">
     <div class="container-fluid d-flex justify-content-between">
       <div>
-        <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
-          Kookly
-        </a>
+        <% if user_signed_in? %>
+          <%= link_to "koolky", foods_path, class: "navbar-brand text-light lh-sm fw-semibold" %>
+          <span class="fw-semibold">Welcome, <%= current_user.name.split(" ")[1] %></span>  
+        <% else %>
+          <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
+            Kookly
+          </a>
+        <% end %>
       </div>
+
       <div>
-      <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_up">
-        Sign up
-      </a>
-      <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_in">
-        Login
-      </a>
+        <% if user_signed_in? %>
+          <%= link_to "Foods", foods_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <%= link_to "Recipes", recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
+            Public Recipes
+          </a>
+          <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
+            Shopping List
+          </a>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="#">
+            Logout
+          </a>
+        <% else %>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_up">
+            Sign up
+          </a>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_in">
+            Login
+          </a>
+        <% end %>
       </div>
     </div>
   </nav>
