@@ -56,3 +56,29 @@ input:checked + .slider::before {
 .slider.round::before {
   border-radius: 50%;
 }
+
+.bg-yellow {
+  background-color: #ffa500;
+}
+
+.new_user {
+  width: 50%;
+}
+
+.field > input[type="text"] {
+  width: 100%;
+}
+
+.field > input[type="email"] {
+  width: 100%;
+}
+
+.field > input[type="password"] {
+  width: 100%;
+}
+
+@media screen and (max-width: 720px) {
+  .new_user {
+    width: 90%;
+  }
+}
