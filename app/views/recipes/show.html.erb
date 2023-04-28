@@ -2,6 +2,9 @@
 <div class="d-flex justify-content-center p-2">
 <h1><%= @recipe.name %></h1>
 </div>
+<div class="d-flex justify-content-between">
+
+<div>
 
 <div class="d-flex justify-content-between p-2">
     <h4>Preparation time: <%= @recipe.preparation_time %> hours</h4>
@@ -15,17 +18,23 @@
     <h4>Steps go here...</h4>
   </div>
 </div>
+
+<div>
+<%= form_for @recipe, method: :patch do |f| %>
+  <div class="swith-btn d-flex mt-5 mr-5">
+    <h3>Public : </h3>
+    <label class="switch mt-2">
+    <div><%= f.submit "" %></div>
+      <%= f.check_box :public, { checked: @recipe.public } %>
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <% end %>
+</div>
+</div>
+
   <hr>
-  <%= form_for @recipe, method: :patch do |f| %>
-    <div class="swith-btn d-flex mt-5 mr-5">
-      <h3>Public : </h3>
-      <label class="switch mt-2">
-      <div><%= f.submit "" %></div>
-        <%= f.check_box :public, { checked: @recipe.public } %>
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <% end %>
+ 
 </div>
   <div class="d-flex justify-content-between p-2">
   </div>
