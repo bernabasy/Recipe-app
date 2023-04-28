@@ -12,10 +12,6 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.includes(:food).where(recipe_id: params[:id])
-
-    return unless cannot? :manage, @recipe
-
-    redirect_to '/'
   end
 
   # GET /recipes/new
@@ -59,6 +55,10 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def public_recipes
+    @recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
   end
 
   private
