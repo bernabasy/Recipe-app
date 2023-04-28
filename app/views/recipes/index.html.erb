@@ -2,7 +2,7 @@
 <%= link_to 'Add Recipe', new_recipe_path, class:"btn btn-success btn-lg" %>
   <% @recipes.each do |recipe| %>
     <div class="p-2 border border-secondary d-flex gap-5 mb-5">
-    <% if current_user.id == recipe.user_id%>
+    
     <div class="d-flex flex-column justify-content-around">
     <span> <%= recipe.name %> </span>
     <% if can? :destroy , recipe %>
@@ -15,8 +15,8 @@
             <span> <%= recipe.description %> </span>
             </div>
   
-  <% end %>
-  <% end %>
+    <% end %>
+  
 
   </div>
   <% end %>
