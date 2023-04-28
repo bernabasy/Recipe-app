@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: params[:id])
 
     return unless cannot? :manage, @recipe
 

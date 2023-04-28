@@ -1,5 +1,4 @@
-<div class="container d-flex justify-content-between p-5">
-<div>
+<section class="container">
 <div class="d-flex justify-content-center p-2">
 <h1><%= @recipe.name %></h1>
 </div>
@@ -33,10 +32,13 @@
 </div>
   <div class="d-flex justify-content-between p-2">
   </div>
-
+  <div class="d-flex justify-content-between">
+    <%= link_to "Generate shopping list", shopping_list_path, class: "btn btn-primary" %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-primary" %>
+  </div>
   <hr class="line" />
 
-<div class="container mt-5">
+<div class="mt-5">
   <table class="table">
     <thead>
       <tr>
@@ -47,16 +49,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @recipe.recipe_foods.each do |recipe_food| %>
+      <% @recipe_foods.each do |recipe_food| %>
       <tr>
         <td><%= recipe_food.food.name %></td>
-        <td><%= recipe_food.food.quantity %></td>
-        <td><%= recipe_food.food.price %></td>
-        <td><%= link_to 'Modify', edit_food_path(recipe_food.food) ,class: "btn btn-outline-primary underline" %>
-          <span><%= link_to 'Remove', food_path(recipe_food.food), data: { turbo_method: 'delete', turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger underline" %></span>
+        <td><%= recipe_food.quantity %></td>
+        <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+        <td>
+          <span><%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: "btn btn-outline-primary btn-sm" %></span>
+          <span><%= link_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), data: { turbo_method: 'delete', turbo_confirm: "Are you sure to delete" }, class: "btn btn-outline-danger btn-sm" %></span>
         </td>
       </tr>
     </tbody>
     <%end%>
   </table>
 </div>
+</section>
