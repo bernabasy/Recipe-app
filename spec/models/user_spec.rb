@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-
 RSpec.describe User, type: :model do
-    subject { User.new(name: 'John') }
-  
-    before { subject.save }
+  subject { User.new(name: 'John') }
 
-    it 'validates presence of name' do
-        subject.name = nil
-        expect(subject).to_not be_valid
-      end
-    end
+  before { subject.save }
+
+  it 'validates presence of name' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+end
