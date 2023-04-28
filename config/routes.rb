@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :new, :create, :destroy, :update] do
     delete ":id", to: "foods#destroy", on: :member
   end
-  resources :recipes
-  get "public_recipes", to: "public_recipes#index" do
+  
+  get "public_recipes", to: "public_recipes#index" 
+  resources :recipes do
     resources :recipe_foods
   end
   get '/shopping_list', to: 'shopping_list#index'
