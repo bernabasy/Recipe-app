@@ -14,7 +14,7 @@
   </head>
 
   <body>
-  <nav class="navbar bg-yellow">
+  <nav class="navbar bg-yellow mb-4">
     <div class="container-fluid d-flex justify-content-between">
       <div>
         <% if user_signed_in? %>
@@ -34,9 +34,7 @@
           <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
             Public Recipes
           </a>
-          <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
-            Shopping List
-          </a>
+          <%= link_to "Shopping List", shopping_list_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
           <a class="navbar-brand fw-medium lh-sm fs-6" href="#">
             Logout
           </a>

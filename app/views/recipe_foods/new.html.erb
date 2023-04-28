@@ -1,5 +1,8 @@
 <section class="container">
-  <h2 class="mt-2 mb-4 fw-medium">Add Ingredient</h2>
+  <div class="pt-4 pb-4 d-flex justify-content-between">
+    <h2 class="fw-semibold">Add Ingredient</h2>
+    <%= link_to "Cancel", recipe_path(@recipe), class: "btn btn-warning" %>
+  </div>
   <%= render "form", recipe_food: @recipe_food %>
   <br>
 </section>

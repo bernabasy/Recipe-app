@@ -13,5 +13,4 @@ Rails.application.routes.draw do
     resources :recipe_foods
   end
   get '/shopping_list', to: 'shopping_list#index'
-  # get 'shopping_list/index'
 end
