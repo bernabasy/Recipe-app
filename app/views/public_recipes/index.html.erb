@@ -1,17 +1,22 @@
-<h2>Public Recipes</h2>
+<div class="container mt-5">
+<h2 class="mt-5 text-center">Public Recipes</h2>
 
-<ul>
+<ul class="container mt-5">
   <% @public_recipes.each do |recipe| %>
-    <li class="row">
-      <a href=<%= "recipes/#{recipe.id}" %>>      
+    <li class=" mb-5 border border border-secondary list-unstyled p-5">
+      <a href=<%= "recipes/#{recipe.id}" %> class="text-decoration-none text-dark">    
+      <div class="d-flex gap-5 justify-content-around ">  
         <div>
           <h3><%= recipe.name %></h3>
           <p>by: <%= recipe.user.name %></p>
         </div>
-        <div>
+        <div >
           <h3>Total food: <%= recipe.recipe_foods.length %></h3>
+          <h3>Total food: <%= recipe.recipe_foods.length %></h3>
+        </div>
         </div>
       </a>
     </li>
   <% end %>
 </ul>
+</div>
