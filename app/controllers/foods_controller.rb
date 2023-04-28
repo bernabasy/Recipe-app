@@ -27,6 +27,9 @@ class FoodsController < ApplicationController
     redirect_to foods_path, notice: "#{@food.name} was successfully deleted"
   end
 
+  def update
+  end
+
   private
 
   def food_params

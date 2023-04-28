@@ -1,3 +1,8 @@
+/* Utilities */
+.btn-warning {
+  background-color: #ffa500;
+}
+
 .switch {
   position: relative;
   display: inline-block;

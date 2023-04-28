@@ -18,6 +18,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def edit
+    @user_foods = Food.where(user_id: current_user.id).to_a
     @recipe = Recipe.find_by(id: params[:recipe_id])
   end
 
