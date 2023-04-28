@@ -39,11 +39,11 @@ class RecipesController < ApplicationController
   end
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
-    def update
-      @recipe.public = !@recipe.public
-      @recipe.save
-      redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.'
-    end
+  def update
+    @recipe.public = !@recipe.public
+    @recipe.save
+    redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.'
+  end
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
