@@ -5,7 +5,7 @@ class Food < ApplicationRecord
   validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   belongs_to :user
-  has_many :recipe_foods
+  has_many :recipe_foods, dependent: :destroy
 
   def self.get_all_foods(user_id)
     where(user_id:)

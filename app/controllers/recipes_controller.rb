@@ -11,10 +11,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-
-    return unless cannot? :manage, @recipe
-
-    redirect_to '/'
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: params[:id])
   end
 
   # GET /recipes/new
@@ -43,11 +40,9 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
-    def update
-      @recipe.public = !@recipe.public
-      @recipe.save
-      redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.'
-    end
+    @recipe.public = !@recipe.public
+    @recipe.save
+    redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.'
   end
 
   # DELETE /recipes/1 or /recipes/1.json

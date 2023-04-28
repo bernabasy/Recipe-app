@@ -14,7 +14,7 @@
   </head>
 
   <body>
-  <nav class="navbar bg-yellow">
+  <nav class="navbar bg-yellow mb-4">
     <div class="container-fluid d-flex justify-content-between">
       <div>
         <% if user_signed_in? %>
@@ -31,10 +31,8 @@
         <% if user_signed_in? %>
           <%= link_to "Foods", foods_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
           <%= link_to "Recipes", recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
-          <%= link_to "Public_recipes", public_recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
-          <a class="navbar-brand text-light fw-medium lh-sm fs-6" href="#">
-            Shopping List
-          </a>
+          <%= link_to "Public Recipes", public_recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <%= link_to "Shopping List", shopping_list_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
           <a class="navbar-brand fw-medium lh-sm fs-6" href="#">
             Logout
           </a>

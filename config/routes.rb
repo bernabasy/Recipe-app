@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   root "pages#index"
 
   resources :users
-  resources :foods, only: [:index, :new, :create, :destroy] do
+  resources :foods, only: [:index, :new, :create, :destroy, :update] do
     delete ":id", to: "foods#destroy", on: :member
   end
-  resources :recipes
-  get "public_recipes", to: "public_recipes#index"
+  
+  get "public_recipes", to: "public_recipes#index" 
+  resources :recipes do
+    resources :recipe_foods
+  end
+  get '/shopping_list', to: 'shopping_list#index'
 end
