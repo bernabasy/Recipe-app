@@ -1,0 +1,25 @@
+<div class="container mt-5" >
+<%= link_to 'Add Recipe', new_recipe_path, class:"btn btn-success btn-lg" %>
+  <% @recipes.each do |recipe| %>
+    <div class="p-2 border border-secondary d-flex gap-5 mb-5">
+    
+    <div class="d-flex flex-column justify-content-around">
+    <span> <%= recipe.name %> </span>
+    <% if can? :destroy , recipe %>
+    <%= button_to "REMOVE", recipe, method: :delete, class: 'btn btn-danger mt-2' %>
+    <% end %>
+    </div>
+    
+    <%= link_to recipe_path(recipe), class: "link-underline link-underline-opacity-0 text-black" do %>
+    <div class="p-2">
+            <span> <%= recipe.description %> </span>
+            </div>
+  
+    <% end %>
+  
+
+  </div>
+  <% end %>
+</div>
+
+

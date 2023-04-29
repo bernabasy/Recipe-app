@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <nav class="navbar bg-yellow mb-4">
+    <div class="container-fluid d-flex justify-content-between">
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "kookly", foods_path, class: "navbar-brand text-light lh-sm fw-semibold" %>
+          <span class="fw-semibold">Welcome, <%= current_user.name %></span>  
+        <% else %>
+          <a class="navbar-brand text-light lh-sm fw-semibold" href="/">
+            Kookly
+          </a>
+        <% end %>
+      </div>
+
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "Foods", foods_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <%= link_to "Recipes", recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <%= link_to "Public Recipes", public_recipes_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <%= link_to "Shopping List", shopping_list_path, class: "navbar-brand text-light fw-medium lh-sm fs-6" %>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="#">
+            Logout
+          </a>
+        <% else %>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_up">
+            Sign up
+          </a>
+          <a class="navbar-brand fw-medium lh-sm fs-6" href="<% request.path %>/users/sign_in">
+            Login
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <% if flash[:notice]%>
+      <p class="alert alert-success">
+        <%= notice %>
+      </p>
+    <% end %>
+    <% if flash[:alert]%>
+      <p class="alert alert-danger">
+        <%= alert %>
+      </p>
+    <% end %>
+  </div>
+    <%= yield %>
+  </body>
+</html>
