@@ -83,8 +83,7 @@ To get a local copy up and running follow these simple example steps.
 Clone this repository to your desired folder:
 
 ```sh
-  cd my-prefered-folder
-  
+ 
   git clone https://github.com/bernabasy/Recipe-app.git
    cd Recipe-app
 ```
